@@ -1,7 +1,8 @@
-package com.turong.training.rest.controller;
+package com.turong.training.rest.controller.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.turong.training.rest.controller.WebRequest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

@@ -1,4 +1,4 @@
-package com.turong.training.rest.controller;
+package com.turong.training.rest.controller.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

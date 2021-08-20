@@ -1,7 +1,7 @@
 package com.turong.training.rest.controller;
 
 import com.turong.training.rest.convert.UserConvert;
-import com.turong.training.rest.service.UserService;
+import com.turong.training.rest.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

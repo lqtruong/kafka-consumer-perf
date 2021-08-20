@@ -16,3 +16,13 @@ insert into `users`
 (1, 'truong@mail.com', 'truong', 'vn', sysdate(), sysdate())
 ,(2, 'peter@mail.com', 'peter', 'tr', sysdate(), sysdate())
 ;
+
+drop table if exists `pings`;
+create table if not exists `pings`(
+    `id` bigint primary key auto_increment,
+    `tenant` varchar(20),
+    `val` varchar(20) not null,
+    `pin_id` bigint not null,
+    `created_at` datetime not null default current_timestamp,
+    `modified_at` datetime not null default current_timestamp
+);

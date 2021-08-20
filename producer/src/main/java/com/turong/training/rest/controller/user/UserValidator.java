@@ -1,5 +1,6 @@
-package com.turong.training.rest.controller;
+package com.turong.training.rest.controller.user;
 
+import com.turong.training.rest.controller.WebValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

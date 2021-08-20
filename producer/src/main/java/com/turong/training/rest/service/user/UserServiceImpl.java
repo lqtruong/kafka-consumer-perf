@@ -1,4 +1,4 @@
-package com.turong.training.rest.service;
+package com.turong.training.rest.service.user;
 
 import com.turong.training.rest.entity.User;
 import com.turong.training.rest.mapper.UserMapper;

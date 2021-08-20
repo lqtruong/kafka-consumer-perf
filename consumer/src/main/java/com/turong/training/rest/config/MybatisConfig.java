@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.StringValue;
 import org.apache.commons.lang3.StringUtils;
@@ -19,7 +19,7 @@ import java.util.Properties;
 
 @Configuration
 @MapperScan("com.turong.training.rest.mapper")
-@Log4j2
+@Slf4j
 public class MybatisConfig {
 
     private static final String TENANT_COLUMN = "tenant";
