@@ -25,4 +25,12 @@ public class AsyncController {
 
     }
 
+    @PostMapping("/ping/custom-header")
+    public ResponseEntity<String> pingWithCustomHeader(@RequestBody PingRequest request) {
+        log.info("ping={}", request);
+        pingSender.sendWithCustomHeader(request.getTimes(), request.getValue());
+        return ResponseEntity.ok("Success");
+
+    }
+
 }

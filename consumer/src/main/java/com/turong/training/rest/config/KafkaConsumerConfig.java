@@ -1,5 +1,6 @@
 package com.turong.training.rest.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +19,7 @@ import java.util.Map;
 
 @Configuration
 @EnableKafka
+@Slf4j
 public class KafkaConsumerConfig {
 
     @Value("${spring.kafka.bootstrapServers:}")
@@ -51,4 +53,14 @@ public class KafkaConsumerConfig {
         return stringObjectMap;
     }
 
+    @Bean("pingMessageWithRecordFilterKafkaFactory")
+    KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> pingMessageWithRecordFilterKafkaFactory() {
+        ConcurrentKafkaListenerContainerFactory<Integer, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
+        factory.setConcurrency(3); // 3 containers of consumer registered into a group
+        factory.setBatchListener(true); // enable batch listener with receiving a list of messages
+        factory.getContainerProperties().setPollTimeout(3000);
+        factory.setRecordFilterStrategy(new PingMeRecordFilter());
+        return factory;
+    }
 }
