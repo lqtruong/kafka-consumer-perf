@@ -39,16 +39,18 @@ public class PingSender {
 
     public void sendWithCustomHeader(int times, String val) {
 
+        final int from = times / 10;
+        final int to = times / 3;
         IntStream.range(0, times).forEach(i -> {
             log.info("Send message ith={}", i);
             PingMessage body = new PingMessage();
             body.setVal(val);
             body.setPinId("" + i);
             String headerEventKey = "";
-            int from = times / 10;
-            int to = times / 3;
             if (i >= from && i <= to) {
                 headerEventKey = "PING_ME";
+            } else {
+                headerEventKey = "USER_PING";
             }
             Message<PingMessage> message = MessageBuilder
                     .withPayload(body)
